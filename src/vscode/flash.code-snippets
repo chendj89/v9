@@ -1,0 +1,43 @@
+{
+  "vue base 3": {
+    "prefix": "vb3",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "$1",
+      "</script>",
+      "<template>",
+      "   <div>",
+      "   $2",
+      "   </div>",
+      "</template>",
+      "<style lang=\"scss\" scoped>",
+      "$4",
+      "</style>"
+    ],
+    "description": "vue3 代码片段"
+  },
+  "unplugin": {
+    "prefix": "unp",
+    "body": [
+      "import { createUnplugin } from 'unplugin';",
+      "",
+      "export const unplugin = createUnplugin((options: UserOptions) => {",
+      "return {",
+      "name: 'unplugin-prefixed-name',",
+      "transformInclude (id) {",
+      "return id.endsWith('.vue')",
+      "},",
+      "transform (code) {",
+      "return code.replace(/<template>/, `<template><div>Injected</div>`)",
+      "},",
+      "}",
+      "})",
+      "",
+      "export const vitePlugin = unplugin.vite;",
+      "export const rollupPlugin = unplugin.rollup;",
+      "export const webpackPlugin = unplugin.webpack;",
+      "export const esbuildPlugin = unplugin.esbuild;"
+    ],
+    "description": "unplugin插件 代码片段"
+  }
+}
